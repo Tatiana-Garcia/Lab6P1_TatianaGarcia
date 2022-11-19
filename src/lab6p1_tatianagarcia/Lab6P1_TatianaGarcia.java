@@ -60,16 +60,18 @@ public class Lab6P1_TatianaGarcia {
                 case 2:
                 {
                     System.out.println();
-                    System.out.println(">> Turing <<");
+                    System.out.println(">> Constante de Kaprekar <<");
                     System.out.println();
                     
                     System.out.print("Ingrese un numero de 4 digitos: ");
                     int num = leer.nextInt();
                     
-                    System.out.println("Numero original"+num);
+                    System.out.println("");
+                    System.out.println("Numero original: "+num);
                     
                     
                     System.out.println(Kaprekar(num));
+                    break;
                 }
                 default: 
                 {
@@ -213,51 +215,53 @@ public class Lab6P1_TatianaGarcia {
                 do 
                 {
                     //Se transforma el numero a cadena
-                    System.out.print(">> Cadena: ");
+                    
                     int [] array = arreglo(num);
-                    imprimir(array);
                     
                     //Se ordena la cadena de manera ascendente
                     
+                    int [] array_asc = ascendente(array);
                     
                     //Se ordena la cadena de manera descendente
                     
+                    int [] array_des = descendente(array);
+                    
                     //Se transforma ascendente a numeros
+                    int asc = numero(array_asc);
                     
                     //Se transforma descendente a numeros 
+                    int des = numero(array_des);
                     
                     //Se imprime y se resta ascendente y descendente
-
-                    System.out.println("");
-                    System.out.println(">> Numero: "+ numero(array));
-                    System.out.println("");
-
-                    System.out.println(">> Cadena 2: ");
-                    int [] array_asc = ascendente(array);
-                    imprimir(array_asc);
-                    System.out.println("");
-
-                    System.out.println(">> Cadena 3: ");
-                    int [] array_des = descendente(array);
-                    imprimir(array_des);
+                    num = des - asc; 
+                    
+                    if(num != 6174)
+                    {
+                        System.out.print(">> "+ des + " - "+asc+" = "+num);
+                        System.out.println("");
+                    }
+                    else 
+                    {
+                        System.out.print(">> "+ des + " - "+asc+" = ");
+                    }
                     
                     con++;
                 }while(con < 7 && num != 6174);
-                
-                    
-                
+                   
             }
             else 
             {
                 System.out.println(">> Los 4 digitos no deben ser iguales");
+                num = 0; 
             }
         }
         else 
         {
-            System.out.println("El numero de ser de 4 digitos");
+            System.out.println(">> El numero debe ser de 4 digitos");
+            num=0; 
         }
             
-        
+        Kaprekar = num;
         
         return Kaprekar; 
     }//Fin del metodo Kaprekar
